@@ -6,10 +6,14 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SingUp from "./modulos/SingUp";
 import Login from "./modulos/Login";
 
-
+let mentorProfile = {
+  "name":"Merida valiente",
+  "sobremi":"hola yo soy merida valiente",
+  "educacion": "por el momento no tengo educacion",
+  "datosCuriosos":"Soy super ensenando"
+}
 function App() {
-
-
+  
   return (
     <div>
       <Router>
@@ -22,7 +26,7 @@ function App() {
 
           <Route path="/mentorsProfile">
             <Navbar />
-            <MentorsProfileModule />
+            <MentorsProfileModule mentorP = {mentorProfile}/>
           </Route>
 
           <Route path="/login">
