@@ -5,15 +5,26 @@ import Navbar from "./modulos/Navbar";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SingUp from "./modulos/SingUp";
 import Login from "./modulos/Login";
+import React from 'react'
 
-let mentorProfile = {
-  "name":"Merida valiente",
-  "sobremi":"hola yo soy merida valiente",
-  "educacion": "por el momento no tengo educacion",
-  "datosCuriosos":"Soy super ensenando"
-}
+
+
+
+
 function App() {
   
+  
+  const [mentorprofileInformation, setMentorProfile] = React.useState({
+                                                                        "name":"Merida valiente",
+                                                                        "sobremi":"hola yo soy merida valiente",
+                                                                        "educacion": "por el momento no tengo educacion",
+                                                                        "datosCuriosos":"Soy super ensenando"
+                                                                        })
+  React.useEffect(() => {
+    console.log("Hola desde el efecto")
+  },[])
+
+  console.log("asdasd")
   return (
     <div>
       <Router>
@@ -26,7 +37,9 @@ function App() {
 
           <Route path="/mentorsProfile">
             <Navbar />
-            <MentorsProfileModule mentorP = {mentorProfile}/>
+            <MentorsProfileModule mentorProfileInformationParameter = {mentorprofileInformation} setMentorProfileFunction = {setMentorProfile}/>{/* Se pueden utilizar props se eliminariam 
+                                                                                                                                                      mentorProfileInformationParameter
+                                                                                                                                                      setMentorProfileFunction*/}
           </Route>
 
           <Route path="/login">
